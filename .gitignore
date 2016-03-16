@@ -1,0 +1,14 @@
+# Build & Lib
+*build*
+*lib*
+# temp files
+*~
+*.user
+# Project specific
+Examples/*/*_tum
+Examples/*/*_kitti
+Thirdparty/g2o/config.h
+Vocabulary/ORBvoc.txt
+Examples/ROS/ORB_SLAM2/Mono
+Examples/ROS/ORB_SLAM2/RGBD
+Examples/ROS/ORB_SLAM2/Stereo
