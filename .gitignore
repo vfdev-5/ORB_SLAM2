@@ -1,6 +1,8 @@
 # Build & Lib
 *build*
 *lib*
+# Debug executable
+*.d
 # temp files
 *~
 *.user
@@ -12,3 +14,5 @@ Vocabulary/ORBvoc.txt
 Examples/ROS/ORB_SLAM2/Mono
 Examples/ROS/ORB_SLAM2/RGBD
 Examples/ROS/ORB_SLAM2/Stereo
+
+

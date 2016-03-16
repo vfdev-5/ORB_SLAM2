@@ -70,6 +70,7 @@ ${Pangolin_LIBRARIES}
 ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
 )
+set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX ".d")
 
 # Build examples
 
@@ -78,20 +79,28 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/RGB-D)
 add_executable(rgbd_tum
 Examples/RGB-D/rgbd_tum.cc)
 target_link_libraries(rgbd_tum ${PROJECT_NAME})
+set_target_properties(rgbd_tum PROPERTIES DEBUG_POSTFIX ".d")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Stereo)
 
 add_executable(stereo_kitti
 Examples/Stereo/stereo_kitti.cc)
 target_link_libraries(stereo_kitti ${PROJECT_NAME})
+set_target_properties(stereo_kitti PROPERTIES DEBUG_POSTFIX ".d")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)
 
 add_executable(mono_tum
 Examples/Monocular/mono_tum.cc)
 target_link_libraries(mono_tum ${PROJECT_NAME})
+set_target_properties(mono_tum PROPERTIES DEBUG_POSTFIX ".d")
 
 add_executable(mono_kitti
 Examples/Monocular/mono_kitti.cc)
 target_link_libraries(mono_kitti ${PROJECT_NAME})
+set_target_properties(mono_kitti PROPERTIES DEBUG_POSTFIX ".d")
 
+add_executable(mono_video
+Examples/Monocular/mono_video.cc)
+target_link_libraries(mono_video ${PROJECT_NAME})
+set_target_properties(mono_video PROPERTIES DEBUG_POSTFIX ".d")
