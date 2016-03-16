@@ -1,0 +1,7 @@
+# Build & libs
+*build*
+*lib*
+
+# Debug executable
+*.d
+
