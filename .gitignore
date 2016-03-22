@@ -9,6 +9,7 @@
 # Project specific
 Examples/*/*_tum
 Examples/*/*_kitti
+Examples/Monocular/mono_video
 Thirdparty/g2o/config.h
 Vocabulary/ORBvoc.txt
 Examples/ROS/ORB_SLAM2/Mono
