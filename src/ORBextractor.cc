@@ -1054,6 +1054,7 @@ void ORBextractor::operator()( InputArray _image, InputArray _mask, vector<KeyPo
     // Pre-compute the scale pyramid
     std::vector<cv::Mat> pyramid;
     std::vector<cv::Mat> * imagePyramid = (mvImagePyramid) ? mvImagePyramid : &pyramid;
+    imagePyramid->clear();
     imagePyramid->resize(nlevels);
 
     ComputePyramid(image, *imagePyramid);
