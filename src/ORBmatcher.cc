@@ -19,6 +19,9 @@
 */
 
 #include "ORBmatcher.h"
+#include"MapPoint.h"
+#include"KeyFrame.h"
+
 
 #include<limits.h>
 

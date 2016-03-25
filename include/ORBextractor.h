@@ -58,40 +58,36 @@ public:
     // Mask is ignored in the current implementation.
     void operator()( cv::InputArray image, cv::InputArray mask,
       std::vector<cv::KeyPoint>& keypoints,
-      cv::OutputArray descriptors);
+      cv::OutputArray descriptors, std::vector<cv::Mat> * mvImagePyramid = 0) const;
 
-    int inline GetLevels(){
-        return nlevels;}
+    int inline GetLevels() const
+    { return nlevels; }
 
-    float inline GetScaleFactor(){
-        return scaleFactor;}
+    float inline GetScaleFactor() const
+    { return scaleFactor;}
 
-    std::vector<float> inline GetScaleFactors(){
-        return mvScaleFactor;
-    }
+    std::vector<float> inline GetScaleFactors() const
+    { return mvScaleFactor; }
 
-    std::vector<float> inline GetInverseScaleFactors(){
-        return mvInvScaleFactor;
-    }
+    std::vector<float> inline GetInverseScaleFactors() const
+    { return mvInvScaleFactor; }
 
-    std::vector<float> inline GetScaleSigmaSquares(){
-        return mvLevelSigma2;
-    }
+    std::vector<float> inline GetScaleSigmaSquares() const
+    { return mvLevelSigma2; }
 
-    std::vector<float> inline GetInverseScaleSigmaSquares(){
-        return mvInvLevelSigma2;
-    }
+    std::vector<float> inline GetInverseScaleSigmaSquares() const
+    { return mvInvLevelSigma2; }
 
-    std::vector<cv::Mat> mvImagePyramid;
+//    std::vector<cv::Mat> mvImagePyramid;
 
 protected:
 
-    void ComputePyramid(cv::Mat image);
-    void ComputeKeyPointsOctTree(std::vector<std::vector<cv::KeyPoint> >& allKeypoints);    
+    void ComputePyramid(const cv::Mat &image, std::vector<cv::Mat> & imagePyramid) const;
+    void ComputeKeyPointsOctTree(std::vector<std::vector<cv::KeyPoint> >& allKeypoints, const std::vector<cv::Mat> & imagePyramid) const;
     std::vector<cv::KeyPoint> DistributeOctTree(const std::vector<cv::KeyPoint>& vToDistributeKeys, const int &minX,
-                                           const int &maxX, const int &minY, const int &maxY, const int &nFeatures, const int &level);
+                                           const int &maxX, const int &minY, const int &maxY, const int &nFeatures, const int &level) const;
 
-    void ComputeKeyPointsOld(std::vector<std::vector<cv::KeyPoint> >& allKeypoints);
+//    void ComputeKeyPointsOld(std::vector<std::vector<cv::KeyPoint> >& allKeypoints);
     std::vector<cv::Point> pattern;
 
     int nfeatures;
