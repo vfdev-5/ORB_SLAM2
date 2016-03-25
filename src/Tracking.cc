@@ -19,23 +19,29 @@
 */
 
 
-#include "Tracking.h"
 
 #include<opencv2/core/core.hpp>
 #include<opencv2/features2d/features2d.hpp>
 
-#include"ORBmatcher.h"
-#include"FrameDrawer.h"
-#include"Converter.h"
-#include"Map.h"
-#include"Initializer.h"
+#include "Tracking.h"
+#include "ORBmatcher.h"
+#include "ORBextractor.h"
+#include "FrameDrawer.h"
+#include "MapDrawer.h"
+#include "Map.h"
+#include "Viewer.h"
+#include "Converter.h"
+#include "Initializer.h"
+#include "LocalMapping.h"
+#include "LoopClosing.h"
+#include "System.h"
+#include "KeyFrameDatabase.h"
 
-#include"Optimizer.h"
-#include"PnPsolver.h"
+#include "Optimizer.h"
+#include "PnPsolver.h"
 
-#include<iostream>
-
-#include<mutex>
+#include <iostream>
+#include <mutex>
 
 
 using namespace std;

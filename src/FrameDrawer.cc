@@ -20,11 +20,13 @@
 
 #include "FrameDrawer.h"
 #include "Tracking.h"
+#include "MapPoint.h"
+#include "Map.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include<mutex>
+#include <mutex>
 
 namespace ORB_SLAM2
 {

@@ -21,6 +21,10 @@
 #include "Frame.h"
 #include "Converter.h"
 #include "ORBmatcher.h"
+#include "MapPoint.h"
+#include "KeyFrame.h"
+#include "ORBextractor.h"
+
 #include <thread>
 
 namespace ORB_SLAM2

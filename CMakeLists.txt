@@ -41,27 +41,10 @@ ${Pangolin_INCLUDE_DIRS}
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
-add_library(${PROJECT_NAME} SHARED
-src/System.cc
-src/Tracking.cc
-src/LocalMapping.cc
-src/LoopClosing.cc
-src/ORBextractor.cc
-src/ORBmatcher.cc
-src/FrameDrawer.cc
-src/Converter.cc
-src/MapPoint.cc
-src/KeyFrame.cc
-src/Map.cc
-src/MapDrawer.cc
-src/Optimizer.cc
-src/PnPsolver.cc
-src/Frame.cc
-src/KeyFrameDatabase.cc
-src/Sim3Solver.cc
-src/Initializer.cc
-src/Viewer.cc
-)
+file (GLOB SRC_FILES "${PROJECT_SOURCE_DIR}/src/*.cc")
+file (GLOB INC_FILES "${PROJECT_SOURCE_DIR}/include/*.h")
+
+add_library(${PROJECT_NAME} SHARED ${SRC_FILES} ${INC_FILES})
 
 target_link_libraries(${PROJECT_NAME}
 ${OpenCV_LIBS}
@@ -83,24 +66,33 @@ set_target_properties(rgbd_tum PROPERTIES DEBUG_POSTFIX ".d")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Stereo)
 
-add_executable(stereo_kitti
-Examples/Stereo/stereo_kitti.cc)
+add_executable(stereo_kitti Examples/Stereo/stereo_kitti.cc)
 target_link_libraries(stereo_kitti ${PROJECT_NAME})
 set_target_properties(stereo_kitti PROPERTIES DEBUG_POSTFIX ".d")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)
 
-add_executable(mono_tum
-Examples/Monocular/mono_tum.cc)
+add_executable(mono_tum Examples/Monocular/mono_tum.cc)
 target_link_libraries(mono_tum ${PROJECT_NAME})
 set_target_properties(mono_tum PROPERTIES DEBUG_POSTFIX ".d")
 
-add_executable(mono_kitti
-Examples/Monocular/mono_kitti.cc)
+add_executable(mono_kitti Examples/Monocular/mono_kitti.cc)
 target_link_libraries(mono_kitti ${PROJECT_NAME})
 set_target_properties(mono_kitti PROPERTIES DEBUG_POSTFIX ".d")
 
-add_executable(mono_video
-Examples/Monocular/mono_video.cc)
+add_executable(mono_video Examples/Monocular/mono_video.cc)
 target_link_libraries(mono_video ${PROJECT_NAME})
 set_target_properties(mono_video PROPERTIES DEBUG_POSTFIX ".d")
+
+add_executable(dbow2_demo Examples/DBoW2_example/demo.cc)
+target_link_libraries(dbow2_demo ${PROJECT_NAME})
+set_target_properties(dbow2_demo PROPERTIES DEBUG_POSTFIX ".d")
+
+add_executable(dbow2_txt2yaml Examples/DBoW2_example/txt2yaml.cc)
+target_link_libraries(dbow2_txt2yaml ${PROJECT_NAME})
+set_target_properties(dbow2_txt2yaml PROPERTIES DEBUG_POSTFIX ".d")
+
+add_executable(map_simple_example Examples/Map/simple_example.cc)
+target_link_libraries(map_simple_example ${PROJECT_NAME})
+set_target_properties(map_simple_example PROPERTIES DEBUG_POSTFIX ".d")
+

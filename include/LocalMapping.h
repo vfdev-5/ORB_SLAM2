@@ -21,21 +21,19 @@
 #ifndef LOCALMAPPING_H
 #define LOCALMAPPING_H
 
-#include "KeyFrame.h"
-#include "Map.h"
-#include "LoopClosing.h"
-#include "Tracking.h"
-#include "KeyFrameDatabase.h"
-
 #include <mutex>
+#include <list>
 
+#include <opencv2/core/core.hpp>
 
 namespace ORB_SLAM2
 {
 
+class KeyFrame;
 class Tracking;
 class LoopClosing;
 class Map;
+class MapPoint;
 
 class LocalMapping
 {
@@ -68,7 +66,7 @@ public:
     bool isFinished();
 
     int KeyframesInQueue(){
-        unique_lock<std::mutex> lock(mMutexNewKFs);
+        std::unique_lock<std::mutex> lock(mMutexNewKFs);
         return mlNewKeyFrames.size();
     }
 

@@ -19,9 +19,17 @@
 */
 
 
-
 #include "System.h"
 #include "Converter.h"
+#include "Tracking.h"
+#include "FrameDrawer.h"
+#include "MapDrawer.h"
+#include "Map.h"
+#include "LocalMapping.h"
+#include "LoopClosing.h"
+#include "KeyFrameDatabase.h"
+#include "Viewer.h"
+
 #include <thread>
 #include <pangolin/pangolin.h>
 #include <iomanip>
@@ -29,7 +37,7 @@
 namespace ORB_SLAM2
 {
 
-System::System(const string &strVocFile, const string &strSettingsFile, const eSensor sensor,
+System::System(const std::string &strVocFile, const std::string &strSettingsFile, const eSensor sensor,
                const bool bUseViewer):mSensor(sensor),mbReset(false),mbActivateLocalizationMode(false),
         mbDeactivateLocalizationMode(false)
 {
@@ -281,7 +289,7 @@ void System::Shutdown()
     pangolin::BindToContext("ORB-SLAM2: Map Viewer");
 }
 
-void System::SaveTrajectoryTUM(const string &filename)
+void System::SaveTrajectoryTUM(const std::string &filename)
 {
     cout << endl << "Saving camera trajectory to " << filename << " ..." << endl;
 
@@ -337,7 +345,7 @@ void System::SaveTrajectoryTUM(const string &filename)
 }
 
 
-void System::SaveKeyFrameTrajectoryTUM(const string &filename)
+void System::SaveKeyFrameTrajectoryTUM(const std::string &filename)
 {
     cout << endl << "Saving keyframe trajectory to " << filename << " ..." << endl;
 
@@ -373,7 +381,7 @@ void System::SaveKeyFrameTrajectoryTUM(const string &filename)
     cout << endl << "trajectory saved!" << endl;
 }
 
-void System::SaveTrajectoryKITTI(const string &filename)
+void System::SaveTrajectoryKITTI(const std::string &filename)
 {
     cout << endl << "Saving camera trajectory to " << filename << " ..." << endl;
 

@@ -22,6 +22,10 @@
 #include "LoopClosing.h"
 #include "ORBmatcher.h"
 #include "Optimizer.h"
+#include "KeyFrame.h"
+#include "Tracking.h"
+#include "Map.h"
+#include "MapPoint.h"
 
 #include<mutex>
 
