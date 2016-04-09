@@ -3,6 +3,8 @@
 My fork of [ORB_SLAM2 project](https://github.com/raulmur/ORB_SLAM2)
 
 * Added example mono_video.cc
+* Added a demo app using DBoW2
+* Code refactoring
 
 
 <hr>
